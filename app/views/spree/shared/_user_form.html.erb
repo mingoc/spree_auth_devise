@@ -9,9 +9,19 @@
     <%= f.password_field :password, :class => 'form-control', :placeholder => Spree.t(:password) %>
 
   </div>
+  
   <div class="form-group">
     <%= f.label :password_confirmation, Spree.t(:password_confirmation), class: 'required', title: 'required' %>
     <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => Spree.t(:confirm_password) %>
   </div>
+
+
+  <div class="form-group">
+    <%= f.label :captcha, Spree.t(:captcha), class: 'required', title: 'required' %>
+    <%= rucaptcha_input_tag(class: 'form-control', placeholder: Spree.t(:captcha)) %>
+    <%= rucaptcha_image_tag(alt: 'Captcha') %>
+  </div>
+  
+  
 </fieldset>
 <div data-hook="signup_below_password_fields"></div>

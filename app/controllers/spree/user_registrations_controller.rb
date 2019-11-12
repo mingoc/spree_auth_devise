@@ -22,7 +22,7 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
   # POST /resource/sign_up
   def create
     @user = build_resource(spree_user_params)
-    resource_saved = resource.save
+    resource_saved = verify_rucaptcha?(resource) && resource.save
     yield resource if block_given?
     if resource_saved
       if resource.active_for_authentication?
